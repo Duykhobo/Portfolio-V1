@@ -1,37 +1,29 @@
-// File: assets/js/main.js
-
+/* =========================================
+   1. LOGIC TRANG PROJECTS (LỌC DỰ ÁN)
+   ========================================= */
 function filterProjects(category) {
-  // 1. Lấy tất cả các Card dự án
+  // Lấy tất cả các Card dự án
   const projects = document.querySelectorAll(".project-item");
-
-  // 2. Lấy tất cả các nút bấm
+  // Lấy tất cả các nút bấm
   const buttons = document.querySelectorAll(".filter-btn");
 
-  // 3. Xử lý Logic ẩn/hiện Card
+  // Xử lý ẩn/hiện Card
   projects.forEach((project) => {
-    // Lấy category của card đó
     const projectCategory = project.getAttribute("data-category");
-
     if (category === "all" || projectCategory === category) {
-      // Hiện card
       project.style.display = "block";
-      // Thêm hiệu ứng fade-in nhẹ cho mượt
       project.style.animation = "fadeIn 0.5s ease";
     } else {
-      // Ẩn card
       project.style.display = "none";
     }
   });
 
-  // 4. Xử lý màu nút bấm (Đổi màu nút đang Active)
+  // Xử lý Active nút bấm
   buttons.forEach((btn) => {
-    // Xóa style active cũ
     btn.classList.remove("bg-sky-500", "text-white", "shadow-sm");
-    // Thêm style inactive
     btn.classList.add("text-slate-400", "hover:text-white");
 
-    // Kiểm tra xem nút này có phải nút vừa bấm không
-    // (So sánh sự kiện onclick có chứa category không)
+    // Check nếu nút này được bấm
     if (btn.getAttribute("onclick").includes(`'${category}'`)) {
       btn.classList.remove("text-slate-400", "hover:text-white");
       btn.classList.add("bg-sky-500", "text-white", "shadow-sm");
@@ -39,7 +31,7 @@ function filterProjects(category) {
   });
 }
 
-// Thêm animation CSS vào JS để đỡ phải sửa file CSS gốc
+// Thêm animation CSS vào JS
 const style = document.createElement("style");
 style.innerHTML = `
   @keyframes fadeIn {
@@ -49,36 +41,58 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-function handleSendMessage(event) {
-  // 1. Chặn hành vi load lại trang mặc định của Form
-  event.preventDefault();
+/* =========================================
+   2. LOGIC TRANG HOME (VẼ BIỂU ĐỒ)
+   ========================================= */
+document.addEventListener("DOMContentLoaded", function () {
+  // Kiểm tra xem có cái khung biểu đồ không mới chạy (để tránh lỗi ở các trang khác)
+  const chartElement = document.querySelector("#codingChart");
 
-  // 2. Lấy các giá trị (Để sau này nếu muốn gửi thật thì dùng)
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
+  if (chartElement) {
+    var options = {
+      series: [
+        {
+          name: "Hours",
+          data: [4, 6, 8, 5, 10, 7, 9], // Dữ liệu giả lập
+        },
+      ],
+      chart: {
+        type: "area",
+        height: 300,
+        toolbar: { show: false },
+        fontFamily: "inherit",
+        background: "transparent",
+      },
+      colors: ["#38bdf8"], // Màu Sky Blue
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.7,
+          opacityTo: 0.1,
+          stops: [0, 90, 100],
+        },
+      },
+      dataLabels: { enabled: false },
+      stroke: { curve: "smooth", width: 3 },
+      xaxis: {
+        categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        labels: { style: { colors: "#94a3b8" } },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      yaxis: {
+        labels: { style: { colors: "#94a3b8" } },
+      },
+      grid: {
+        borderColor: "#334155",
+        strokeDashArray: 4,
+      },
+      theme: { mode: "dark" },
+      tooltip: { theme: "dark" },
+    };
 
-  // 3. Hiệu ứng Loading (Giả vờ đang gửi)
-  const btn = document.getElementById("submitBtn");
-  const originalContent = btn.innerHTML; // Lưu lại nội dung nút cũ
-
-  // Đổi nút thành trạng thái đang gửi
-  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending...</span>';
-  btn.disabled = true; // Khóa nút lại không cho bấm liên tục
-  btn.classList.add("opacity-70", "cursor-not-allowed");
-
-  // 4. Giả lập độ trễ mạng (2 giây)
-  setTimeout(() => {
-    // Sau 2 giây thì báo thành công
-    alert(`Thank you, ${name}! Your message has been sent successfully.\nI will contact you at ${email} soon.`);
-
-    // 5. Reset Form về ban đầu
-    document.getElementById("contactForm").reset();
-
-    // 6. Trả nút bấm về trạng thái cũ
-    btn.innerHTML = originalContent;
-    btn.disabled = false;
-    btn.classList.remove("opacity-70", "cursor-not-allowed");
-  }, 2000); // 2000ms = 2 giây
-}
+    var chart = new ApexCharts(chartElement, options);
+    chart.render();
+  }
+});
