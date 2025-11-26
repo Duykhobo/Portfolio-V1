@@ -48,3 +48,37 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+function handleSendMessage(event) {
+  // 1. Chặn hành vi load lại trang mặc định của Form
+  event.preventDefault();
+
+  // 2. Lấy các giá trị (Để sau này nếu muốn gửi thật thì dùng)
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  // 3. Hiệu ứng Loading (Giả vờ đang gửi)
+  const btn = document.getElementById("submitBtn");
+  const originalContent = btn.innerHTML; // Lưu lại nội dung nút cũ
+
+  // Đổi nút thành trạng thái đang gửi
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending...</span>';
+  btn.disabled = true; // Khóa nút lại không cho bấm liên tục
+  btn.classList.add("opacity-70", "cursor-not-allowed");
+
+  // 4. Giả lập độ trễ mạng (2 giây)
+  setTimeout(() => {
+    // Sau 2 giây thì báo thành công
+    alert(`Thank you, ${name}! Your message has been sent successfully.\nI will contact you at ${email} soon.`);
+
+    // 5. Reset Form về ban đầu
+    document.getElementById("contactForm").reset();
+
+    // 6. Trả nút bấm về trạng thái cũ
+    btn.innerHTML = originalContent;
+    btn.disabled = false;
+    btn.classList.remove("opacity-70", "cursor-not-allowed");
+  }, 2000); // 2000ms = 2 giây
+}
