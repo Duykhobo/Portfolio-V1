@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DuyPro | Projects</title>
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body class="bg-slate-900 text-slate-200 flex h-screen overflow-hidden font-sans">
+    <aside
+      class="w-64 bg-slate-800 hidden md:flex flex-col justify-between border-r border-slate-700 p-6 transition-all"
+    >
+      <div class="text-2xl font-bold text-white mb-10 tracking-wide">Duy<span class="text-sky-500">Pro</span>.</div>
+
+      <nav class="flex-1 space-y-2">
+        <a
+          href="index.html"
+          class="flex items-center gap-3 p-3 rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white transition-all"
+        >
+          <i class="fa-solid fa-house w-6 text-center"></i>
+          <span class="font-medium">Overview</span>
+        </a>
+
+        <a
+          href="projects.html"
+          class="flex items-center gap-3 p-3 rounded-lg bg-slate-700/50 text-sky-400 border-l-4 border-sky-500 transition-all"
+        >
+          <i class="fa-solid fa-code w-6 text-center"></i>
+          <span class="font-medium">Projects</span>
+        </a>
+
+        <a
+          href="contact.html"
+          class="flex items-center gap-3 p-3 rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white transition-all"
+        >
+          <i class="fa-solid fa-paper-plane w-6 text-center"></i>
+          <span class="font-medium">Contact</span>
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3 pt-6 border-t border-slate-700 mt-4">
+        <img
+          src="./assets/images/avatar.jpg"
+          alt="User"
+          class="w-10 h-10 rounded-full object-cover border-2 border-slate-600"
+        />
+        <div>
+          <h4 class="text-sm font-bold text-white">Thanh Duy</h4>
+          <p class="text-xs text-slate-400">Fullstack Dev</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 bg-slate-900 overflow-y-auto relative scroll-smooth">
+      <div class="p-6 md:p-10 pb-24 max-w-7xl mx-auto">
+        <div class="flex justify-between items-center mb-8 md:hidden">
+          <h1 class="text-xl font-bold text-white">Duy<span class="text-sky-500">Pro</span></h1>
+          <img class="w-8 h-8 rounded-full border border-sky-500" src="./assets/images/avatar.jpg" alt="Ava" />
+        </div>
+
+        <header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-bold text-white tracking-tight">My Projects</h2>
+            <p class="text-slate-400 mt-2">Here are some of the projects I've worked on.</p>
+          </div>
+
+          <div class="flex gap-2 bg-slate-800 p-1 rounded-lg w-fit">
+            <button
+              onclick="filterProjects('all')"
+              class="filter-btn active px-4 py-1.5 text-sm font-medium rounded-md transition-colors bg-sky-500 text-white shadow-sm"
+            >
+              All
+            </button>
+            <button
+              onclick="filterProjects('web')"
+              class="filter-btn px-4 py-1.5 text-sm font-medium rounded-md transition-colors text-slate-400 hover:text-white"
+            >
+              Web
+            </button>
+            <button
+              onclick="filterProjects('app')"
+              class="filter-btn px-4 py-1.5 text-sm font-medium rounded-md transition-colors text-slate-400 hover:text-white"
+            >
+              App
+            </button>
+          </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <article
+            class="project-item bg-slate-800 rounded-xl border border-slate-700 overflow-hidden hover:border-sky-500/50 hover:shadow-xl transition-all group"
+            data-category="app"
+          >
+            <div class="h-48 bg-slate-700 relative overflow-hidden">
+              <img
+                src="./assets/images/project-java.jpg"
+                onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'"
+                alt="Company Management"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-slate-900/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <a
+                  rel="noopener"
+                  href="https://github.com/Duykhobo/Assignment_Company_Management"
+                  target="_blank"
+                  class="w-10 h-10 bg-white text-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="https://github.com/Duykhobo/Assignment_Company_Management"
+                  class="w-10 h-10 bg-sky-500 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                  Company Management
+                </h3>
+                <i class="fa-brands fa-java text-slate-500 text-2xl"></i>
+              </div>
+              <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                HR management system featuring employee CRUD, salary calculation, and timekeeping.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-medium">
+                <span class="px-2 py-1 bg-red-500/10 text-red-400 rounded-md border border-red-500/20">Java</span>
+                <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded-md border border-yellow-500/20"
+                  >SQL</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="project-item bg-slate-800 rounded-xl border border-slate-700 overflow-hidden hover:border-sky-500/50 hover:shadow-xl transition-all group"
+            data-category="web"
+          >
+            <div class="h-48 bg-slate-700 relative overflow-hidden">
+              <img
+                src="./assets/images/project-portfolio.jpg"
+                onerror="this.src='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80'"
+                alt="Portfolio V1"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-slate-900/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white text-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="index.html"
+                  class="w-10 h-10 bg-sky-500 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Portfolio V1</h3>
+                <i class="fa-solid fa-globe text-slate-500 text-xl"></i>
+              </div>
+              <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                My first personal website built with pure HTML/CSS and Tailwind.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-medium">
+                <span class="px-2 py-1 bg-orange-500/10 text-orange-400 rounded-md border border-orange-500/20"
+                  >HTML</span
+                >
+                <span class="px-2 py-1 bg-sky-500/10 text-sky-400 rounded-md border border-sky-500/20">Tailwind</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <nav
+        class="md:hidden fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-lg border-t border-slate-800 flex justify-around items-center z-50 py-3"
+      >
+        <a href="index.html" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+          <i class="fa-solid fa-house text-lg"></i>
+          <span class="text-[10px] font-medium">Overview</span>
+        </a>
+
+        <a href="projects.html" class="flex flex-col items-center gap-1 text-sky-500">
+          <i class="fa-solid fa-code text-lg"></i>
+          <span class="text-[10px] font-bold">Projects</span>
+        </a>
+
+        <a href="contact.html" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+          <i class="fa-solid fa-paper-plane text-lg"></i>
+          <span class="text-[10px] font-medium">Contact</span>
+        </a>
+      </nav>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DuyPro | Dashboard</title>
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body class="bg-slate-900 text-slate-200 flex h-screen overflow-hidden font-sans">
+    <aside
+      class="w-64 bg-slate-800 hidden md:flex flex-col justify-between border-r border-slate-700 p-6 transition-all"
+    >
+      <div class="text-2xl font-bold text-white mb-10 tracking-wide">Duy<span class="text-sky-500">Pro</span>.</div>
+
+      <nav class="flex-1 space-y-2">
+        <a
+          href="index.html"
+          class="flex items-center gap-3 p-3 rounded-lg bg-slate-700/50 text-sky-400 border-l-4 border-sky-500 transition-all"
+        >
+          <i class="fa-solid fa-house w-6 text-center"></i>
+          <span class="font-medium">Overview</span>
+        </a>
+
+        <a
+          href="projects.html"
+          class="flex items-center gap-3 p-3 rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white transition-all"
+        >
+          <i class="fa-solid fa-code w-6 text-center"></i>
+          <span class="font-medium">Projects</span>
+        </a>
+
+        <a
+          href="contact.html"
+          class="flex items-center gap-3 p-3 rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white transition-all"
+        >
+          <i class="fa-solid fa-paper-plane w-6 text-center"></i>
+          <span class="font-medium">Contact</span>
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3 pt-6 border-t border-slate-700 mt-4">
+        <img
+          src="./assets/images/avatar.jpg"
+          alt="User"
+          class="w-10 h-10 rounded-full object-cover border-2 border-slate-600"
+        />
+        <div>
+          <h4 class="text-sm font-bold text-white">Thanh Duy</h4>
+          <p class="text-xs text-slate-400">Fullstack Dev</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 bg-slate-900 overflow-y-auto relative scroll-smooth">
+      <div class="p-6 md:p-10 pb-24 max-w-7xl mx-auto">
+        <div class="flex justify-between items-center mb-8 md:hidden">
+          <h1 class="text-xl font-bold text-white">Duy<span class="text-sky-500">Pro</span></h1>
+          <img class="w-8 h-8 rounded-full border border-sky-500" src="./assets/images/avatar.jpg" alt="Ava" />
+        </div>
+
+        <header class="mb-8">
+          <h2 class="text-3xl font-bold text-white tracking-tight">Overview</h2>
+          <p class="text-slate-400 mt-2">Welcome back to your portfolio dashboard.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div
+            class="bg-slate-800 rounded-xl border border-slate-700 shadow-lg p-6 relative overflow-hidden group hover:border-sky-500/50 transition-all"
+          >
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Experience</p>
+            <h3 class="text-3xl font-bold text-white z-10 relative">1 Year</h3>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 bg-sky-500/10 rounded-full flex items-center justify-center text-sky-500/20 group-hover:scale-110 transition-transform"
+            >
+              <i class="fa-solid fa-briefcase text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="bg-slate-800 rounded-xl border border-slate-700 shadow-lg p-6 relative overflow-hidden group hover:border-purple-500/50 transition-all"
+          >
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Completed Projects</p>
+            <h3 class="text-3xl font-bold text-white z-10 relative">1</h3>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-500/20 group-hover:scale-110 transition-transform"
+            >
+              <i class="fa-solid fa-code-branch text-5xl"></i>
+            </div>
+          </div>
+
+          <div
+            class="bg-slate-800 rounded-xl border border-slate-700 shadow-lg p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-all"
+          >
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Focus Level</p>
+            <h3 class="text-3xl font-bold text-white z-10 relative">100%</h3>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-500/20 group-hover:scale-110 transition-transform"
+            >
+              <i class="fa-solid fa-mug-hot text-5xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-slate-800/50 border-2 border-dashed border-slate-700 rounded-xl h-64 flex flex-col items-center justify-center text-slate-500"
+        >
+          <i class="fa-solid fa-chart-pie text-4xl mb-4 opacity-50"></i>
+          <p>Chart or Github Activity will go here</p>
+        </div>
+      </div>
+
+      <nav
+        class="md:hidden fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-lg border-t border-slate-800 flex justify-around items-center z-50 py-3"
+      >
+        <a href="index.html" class="flex flex-col items-center gap-1 text-sky-500">
+          <i class="fa-solid fa-house text-lg"></i>
+          <span class="text-[10px] font-bold">Overview</span>
+        </a>
+
+        <a href="projects.html" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+          <i class="fa-solid fa-code text-lg"></i>
+          <span class="text-[10px] font-medium">Projects</span>
+        </a>
+
+        <a href="contact.html" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
+          <i class="fa-solid fa-paper-plane text-lg"></i>
+          <span class="text-[10px] font-medium">Contact</span>
+        </a>
+      </nav>
+    </main>
+  </body>
+</html>
